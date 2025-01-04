@@ -29,16 +29,16 @@
                         <p>Bitcoin (BTC) is de eerste en meest bekende cryptocurrency. Het werd in 2009 geïntroduceerd en biedt een gedecentraliseerde manier om transacties uit te voeren zonder tussenkomst van banken.</p>
                     </div>
                     <div class="image-right">
-                        <img src=alt="Bitcoin">
+                        <img src="Bitcoin.svg (1).png" alt="">
                     </div>
                 </div>
                 
                 <div class="slide">
-                    <img src= alt="Ethereum">
+                   <img src="Ethereum-icon-purple.svg.png" alt="">
                     <p>Ethereum (ETH) staat bekend om zijn slimme contracten en gedecentraliseerde applicaties (dApps). Het opent de deur naar een breed scala aan blockchain-gebaseerde innovaties.</p>
                 </div>
                 <div class="slide">
-                    <img src= alt="Litecoin">
+                   <img src="lite.png" alt="">
                     <p>Litecoin (LTC) biedt snellere transacties en een efficiënter miningproces dan Bitcoin, wat het een populaire keuze maakt voor dagelijkse betalingen.</p>
                 </div>
                 <button class="next">&#10095;</button>
@@ -73,30 +73,7 @@
         <p>Wij zijn een team van enthousiaste experts die zich richten op het versterken van informatie over cryptovaluta en blockchain-technologie.</p>
     </section>
 
-    <script>
-        const slides = document.querySelectorAll('.slide');
-        const prevButton = document.querySelector('.prev');
-        const nextButton = document.querySelector('.next');
-        let currentSlide = 0;
-
-        function showSlide(index) {
-            slides.forEach((slide, i) => {
-                slide.classList.toggle('active', i === index);
-            });
-        }
-
-        prevButton.addEventListener('click', () => {
-            currentSlide = (currentSlide > 0) ? currentSlide - 1 : slides.length - 1;
-            showSlide(currentSlide);
-        });
-
-        nextButton.addEventListener('click', () => {
-            currentSlide = (currentSlide < slides.length - 1) ? currentSlide + 1 : 0;
-            showSlide(currentSlide);
-        });
-
-        showSlide(currentSlide);
-    </script>
+    <script src="crypto.js"></script>
 
 </body>
 </html>

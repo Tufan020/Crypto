@@ -152,3 +152,65 @@ li {
 .carousel button {
     z-index: 100;
 }
+  
+.slide {
+    display: flex; /* Zorg ervoor dat de afbeelding en tekst naast elkaar staan */
+    align-items: center; /* Verticale uitlijning van inhoud */
+    justify-content: flex-start; /* Horizontale uitlijning naar links */
+    gap: 1rem; /* Ruimte tussen de afbeelding en de tekst */
+}
+
+.slide img {
+    max-width: 150px; /* Stel de maximale breedte van de afbeeldingen in */
+    height: auto; /* Houd de oorspronkelijke verhoudingen */
+    border-radius: 10px; /* Houd de afgeronde hoeken */
+    flex-shrink: 0; /* Zorg dat de afbeelding niet wordt verkleind door de tekst */
+}
+
+.text-left {
+    text-align: left; /* Tekst links uitlijnen */
+    max-width: 500px; /* Optioneel: limiet aan breedte van de tekst */
+}
+   
+h1, h2, h3 {
+    margin-bottom: 1rem;
+}
+
+h1 {
+    animation: fadeSlideIn 1.5s ease-out;
+}
+
+@keyframes fadeSlideIn {
+    0% {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+
+.carousel {
+    position: relative;
+    max-width: 700px;
+    margin: 2rem auto;
+    overflow: hidden; /* Verberg slides buiten de carrousel */
+    border-radius: 10px;
+    background-color: #1e1e1e;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.carousel-content {
+    display: flex;
+    transition: transform 0.5s ease-in-out; /* Soepele overgang */
+    width: 100%;
+}
+
+.slide {
+    flex: 0 0 100%; /* Elke slide neemt 100% van de breedte in */
+    box-sizing: border-box;
+    text-align: center;
+}
