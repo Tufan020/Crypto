@@ -1,25 +1,28 @@
-const slides = document.querySelectorAll('.slide');
-const prevButton = document.querySelector('.prev');
-const nextButton = document.querySelector('.next');
-const carouselContent = document.querySelector('.carousel-content');
-let currentSlide = 0;
+let slideIndex = 1;
+showSlides(slideIndex);
 
-function showSlide(index) {
-    const totalSlides = slides.length;
-    currentSlide = (index + totalSlides) % totalSlides; // Zorg voor cirkelvormige navigatie
-    const offset = -currentSlide * 100; // Bereken de verschuiving
-    carouselContent.style.transform = `translateX(${offset}%)`; // Verplaats slides
+// Next/previous controls
+function plusSlides(n) {
+  showSlides(slideIndex += n);
 }
 
-// Event listeners voor knoppen
-prevButton.addEventListener('click', () => {
-    showSlide(currentSlide - 1);
-});
+// Thumbnail image controls
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
 
-nextButton.addEventListener('click', () => {
-    showSlide(currentSlide + 1);
-});
-
-// Toon de eerste slide
-showSlide(currentSlide);
-
+function showSlides(n) {
+  let i;
+  let slides = document.getElementsByClassName("mySlides");
+  let dots = document.getElementsByClassName("dot");
+  if (n > slides.length) {slideIndex = 1}
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";
+  }
+  for (i = 0; i < dots.length; i++) {
+    dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";
+  dots[slideIndex-1].className += " active";
+}

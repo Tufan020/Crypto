@@ -10,58 +10,75 @@ body {
     color: #fff;
     text-align: center;
     position: relative;
-    scroll-behavior: smooth; }
-
+}
 
 .header-info {
     position: absolute;
     top: 1rem;
     left: 1rem;
     font-size: 1.2rem;
-    font-weight: bold;}
+    font-weight: bold;
+    animation: bounce 1s infinite;
+}
 
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0); /* Start en eindigt op dezelfde plek */
+    }
+    50% {
+        transform: translateY(-10px); /* Spring omhoog */
+    }
+}
 .nav-bar {
     position: absolute;
     top: 1rem;
-    right: 1rem;}
+    right: 1rem;
+}
 
 .nav-bar ul {
     list-style: none;
     margin: 0;
     padding: 0;
     display: flex;
-    gap: 1.5rem;}
+    gap: 1.5rem;
+}
 
 .nav-bar a {
     text-decoration: none;
     color: #fff;
     font-weight: bold;
-    transition: color 0.3s ease;}
+    transition: color 0.3s ease;
+}
 
 .nav-bar a:hover {
-    color: #4facfe; }
-
+    color: #4facfe;
+}
 
 section {
     padding: 5rem 2rem;
-    min-height: 100vh; }
-
+    min-height: 100vh;
+}
 
 .home-section {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center; }
-
+    align-items: center;
+}
 
 .informatie-section {
-    background-color: #1e1e1e; }
-
+    background-color: #1e1e1e;
+    background: linear-gradient(135deg, #0d1b2a, #a30c3e);
+}
 
 .crypto-section {
-    background-color: #93c8d2;}
+    background-color: #93c8d2;
+    background: linear-gradient(135deg, #0d1b2a, #271e7a);
+}
+
 .over-ons-section {
-    background-color: #9d329d; 
+    background-color: #9d329d;
+    background: linear-gradient(135deg, #0d1b2a,  #9d329d);
 }
 
 h1, h2, h3 {
@@ -75,7 +92,6 @@ p {
     line-height: 1.5;
 }
 
-
 ul {
     list-style: none;
     padding: 0;
@@ -85,132 +101,139 @@ li {
     margin-bottom: 1rem;
 }
 
-.carousel {
-    position: relative;
-    max-width: 700px; /* Verbreed indien nodig */
-    margin: 2rem auto;
-    overflow: visible; /* Zorg ervoor dat de knoppen niet worden verborgen */
-    border-radius: 10px;
-    background-color: #1e1e1e;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+* {box-sizing:border-box}
+
+/* Slideshow container */
+.slideshow-container {
+  width: 1000px;
+  position: relative;
+  margin: auto;
 }
 
-
-.carousel-content {
-    display: flex;
-    transition: transform 0.5s ease-in-out;
+/* Hide the images by default */
+.mySlides {
+  display: none;
 }
 
-.slide {
-    min-width: 100%;
-    box-sizing: border-box;
-    text-align: center;
-    padding: 1rem;
+/* Next & previous buttons */
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  margin-top: -22px;
+  padding: 16px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
 }
 
-.slide img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 10px;
+/* Position the "next button" to the right */
+
+.next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+  } 
+  .prev {
+    left: 0;
+    border-radius: 3px 0 0 3px;
+  }
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover, .next:hover {
+  background-color: rgba(0,0,0,0.8);
 }
 
-.carousel button {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background: rgba(0, 0, 0, 0.5);
-    color: #fff;
-    border: none;
-    padding: 0.5rem 1rem;
-    cursor: pointer;
-    font-size: 1.5rem;
-    border-radius: 50%;
+/* Caption text */
+.text {
+  color: #f2f2f2;
+  font-size: 15px;
+  padding: 8px 12px;
+  position: absolute;
+  bottom: 8px;
+  width: 100%;
+  text-align: center;
 }
 
-.carousel button.prev {
-    left: -3rem; /* Plaats de linker pijl buiten de carrousel */
+/* Number text (1/3 etc) */
+.numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
 }
 
-.carousel button.next {
-    right: -3rem; /* Plaats de rechter pijl buiten de carrousel */
+/* The dots/bullets/indicators */
+.dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
 }
 
-
-
-.carousel button:hover {
-    background: rgba(0, 0, 0, 0.8);
+.active, .dot:hover {
+  background-color: #717171;
 }
 
-.slide.active {
-    display: block;
+/* Fading animation */
+.fade {
+  animation-name: fade;
+  animation-duration: 1.5s;
 }
 
-.slide:not(.active) {
-    display: none;
+@keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
 }
 
-.carousel button {
-    z-index: 100;
-}
-  
-.slide {
-    display: flex; /* Zorg ervoor dat de afbeelding en tekst naast elkaar staan */
-    align-items: center; /* Verticale uitlijning van inhoud */
-    justify-content: flex-start; /* Horizontale uitlijning naar links */
-    gap: 1rem; /* Ruimte tussen de afbeelding en de tekst */
+.grid-container {
+    display: grid;
+    grid-template-columns: auto auto;
+  }
+  .grid-item {
+   height:  200px;
+  }
+
+ /* Style inputs with type="text", select elements and textareas */
+input[type=text], select, textarea {
+  width: 100%; /* Full width */
+  padding: 12px; /* Some padding */ 
+  border: 1px solid #ccc; /* Gray border */
+  border-radius: 4px; /* Rounded borders */
+  box-sizing: border-box; /* Make sure that padding and width stays in place */
+  margin-top: 6px; /* Add a top margin */
+  margin-bottom: 16px; /* Bottom margin */
+  resize: vertical /* Allow the user to vertically resize the textarea (not horizontally) */
 }
 
-.slide img {
-    max-width: 150px; /* Stel de maximale breedte van de afbeeldingen in */
-    height: auto; /* Houd de oorspronkelijke verhoudingen */
-    border-radius: 10px; /* Houd de afgeronde hoeken */
-    flex-shrink: 0; /* Zorg dat de afbeelding niet wordt verkleind door de tekst */
+/* Style the submit button with a specific background color etc */
+input[type=submit] {
+  background-color: #ff00d4;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
 }
 
-.text-left {
-    text-align: left; /* Tekst links uitlijnen */
-    max-width: 500px; /* Optioneel: limiet aan breedte van de tekst */
-}
-   
-h1, h2, h3 {
-    margin-bottom: 1rem;
+/* When moving the mouse over the submit button, add a darker green color */
+input[type=submit]:hover {
+  background-color: #ff00d4;
 }
 
-h1 {
-    animation: fadeSlideIn 1.5s ease-out;
-}
-
-@keyframes fadeSlideIn {
-    0% {
-        opacity: 0;
-        transform: translateY(-50px);
-    }
-    100% {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-
-
-.carousel {
-    position: relative;
-    max-width: 700px;
-    margin: 2rem auto;
-    overflow: hidden; /* Verberg slides buiten de carrousel */
-    border-radius: 10px;
-    background-color: #1e1e1e;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
-
-.carousel-content {
-    display: flex;
-    transition: transform 0.5s ease-in-out; /* Soepele overgang */
-    width: 100%;
-}
-
-.slide {
-    flex: 0 0 100%; /* Elke slide neemt 100% van de breedte in */
-    box-sizing: border-box;
-    text-align: center;
-}
+/* Add a background color and some padding around the form */
+.container {
+  border-radius: 5px;
+  padding: 20px;
+  max-width: 800px;
+  margin: 0 auto;
+position: relative;
+} 
